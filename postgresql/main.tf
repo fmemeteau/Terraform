@@ -1,3 +1,5 @@
+# This file contains everythin, from the image to the volume, as it is simpler from a learning point of view
+
 terraform{
     required_providers{
         docker = {
@@ -20,7 +22,7 @@ resource "docker_image" "postgresql" {
 
 resource "docker_container" "data" {
     image = docker_image.postgresql.image_id
-    name = "data"
+    name = var.container_name
     hostname = "data-postgre"
     rm = "false"
     env = ["POSTGRES_USER=user-db-test", "POSTGRES_PASSWORD=sdfghjk", "POSTGRES_DB=db-test", "PGDATA=/var/lib/postgresql/data/db-test"]
