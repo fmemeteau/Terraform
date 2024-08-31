@@ -1,6 +1,6 @@
 variable "img_source" {
   description = "ISO utilisée"
-  default     = "/home/fabian/ISOs/ubuntu-24.04-desktop-amd64.iso"
+  default     = "/mnt/vms/isos/pop-os_22.04_amd64_nvidia_33.iso"
 }
 
 variable "img_format" {

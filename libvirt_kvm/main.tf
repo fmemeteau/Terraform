@@ -15,13 +15,13 @@ resource "libvirt_volume" "base_size" {
   name   = "vm_base.{$var.img_format}"
   source = var.img_source
   format = var.img_format
-  pool   = "VMs"
+  pool   = "vms"
 }
 
 resource "libvirt_volume" "vol_test" {
   name           = "vol_test_ubuntu"
   base_volume_id = libvirt_volume.base_size.id
-  pool           = "VMs"
+  pool           = "vms"
   size           = "21474836480"
 }
 
@@ -36,7 +36,7 @@ resource "libvirt_domain" "vm_test" {
   }
 
   network_interface {
-    network_name = "proxyArp"
+    network_name = "br0"
   }
 
   console {
